@@ -1,9 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @restaurant.name %>
-</p>
+</h1>
 
 <p>
   <strong>Description:</strong>
@@ -21,4 +18,4 @@
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path %> |
-<%= link_to 'Destroy', @restaurant.destroy %>
+<%= link_to 'Destroy', @restaurant, method: :delete %>

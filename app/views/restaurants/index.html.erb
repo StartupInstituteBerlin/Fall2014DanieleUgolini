@@ -1,5 +1,6 @@
 <h1>Listing Restaurants</h1>
 
+
 <table>
   <thead>
     <tr>
@@ -18,7 +19,7 @@
         <td><%= restaurant.description %></td>
         <td><%= restaurant.full_address %></td>
         <td><%= restaurant.phone_number %></td>
-        <td><%= link_to 'Show', restaurant %></td>
+        <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
       </tr>
     <% end %>
   </tbody>

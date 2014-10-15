@@ -4,13 +4,12 @@
       <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 
       <ul>
-      <% @restaurant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
 
   <div class="field">
     <%= f.label :name %><br>
