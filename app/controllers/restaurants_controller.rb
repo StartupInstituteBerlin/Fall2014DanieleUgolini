@@ -15,7 +15,8 @@ class RestaurantsController < ApplicationController
 	def create
 		@restaurant = Restaurant.new(restaurant_params)
 
-		if @restaurant.save
+		if @restaurant.save 
+			flash[:notice] = "Restaurant #{@restaurant.name} successfully Created"
 		redirect_to @restaurant
 		else
 			render :new
@@ -39,7 +40,6 @@ class RestaurantsController < ApplicationController
 	def destroy
 		@restaurant = Restaurant.find(params[:id])
 		@restaurant.destroy
-
 		redirect_to restaurants_path
 	end
 
