@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'haml'
 
+gem 'bcrypt'
+
 group :development do
 gem 'sqlite3'
 end
