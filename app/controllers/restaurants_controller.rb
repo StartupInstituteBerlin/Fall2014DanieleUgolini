@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+	before_action :authenticate_owner!, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
 		@restaurants = Restaurant.all
@@ -14,6 +15,7 @@ class RestaurantsController < ApplicationController
 
 	def create
 		@restaurant = Restaurant.new(restaurant_params)
+		@restaurant.owner_id = current_owner.id
 
 		if @restaurant.save 
 			flash[:notice] = "Restaurant #{@restaurant.name} successfully Created"

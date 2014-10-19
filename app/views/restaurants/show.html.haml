@@ -1,5 +1,11 @@
 %h1= @restaurant.name
 
+- if (owner_signed_in?) && (current_owner == @restaurant.owner)
+  %p
+    %strong
+      Owner:
+    = @restaurant.owner.name
+
 %p
   %strong
     Description:
@@ -21,6 +27,8 @@
 
 %br
 
-= link_to 'Edit', edit_restaurant_path 
-= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure to delete?' }
+
+- if (owner_signed_in?) && (current_owner == @restaurant.owner)
+  = link_to 'Edit', edit_restaurant_path 
+  = link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure to delete?' }
 = link_to 'Back', restaurants_path 
