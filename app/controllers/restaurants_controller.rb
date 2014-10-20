@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
 	before_action :authenticate_owner!, only: [:new, :create, :edit, :update, :destroy]
+	before_filter :check_owner, only: [:edit, :update, :destroy]
 
 	def index
 		@restaurants = Restaurant.all
@@ -50,4 +51,10 @@ class RestaurantsController < ApplicationController
 			params.require(:restaurant).permit(:name, :description, :full_address, :phone_number)
 		end
 
+		def check_owner
+			@restaurant = Restaurant.find(params[:id])
+			if current_owner != @restaurant.owner
+				redirect_to root_url
+			end
+		end
 end
