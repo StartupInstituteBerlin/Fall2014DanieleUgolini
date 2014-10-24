@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+	
 describe Restaurant do
   it 'validates the presence of name' do
     restaurant = Restaurant.new

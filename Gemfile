@@ -29,10 +29,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'haml'
 gem 'bcrypt'
-gem 'rspec-rails'
+gem "parsley-rails"
+gem "faker"
 
 group :test do
 gem 'rspec-rails'
+gem 'factory_girl_rails'
 end	
 
 group :development do
