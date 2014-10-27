@@ -4,5 +4,8 @@ class Restaurant < ActiveRecord::Base
 
 	validates :name, :description, :full_address, :phone_number, presence: true 
 
-	belongs_to :owner                
+	belongs_to :owner
+	has_many :reservations
+
+	accepts_nested_attributes_for :reservations        
 end

@@ -5,6 +5,10 @@
     %strong
       Owner:
     = @restaurant.owner.name
+  %p
+    %strong
+      Dashboard:
+    = link_to 'dashboard', dashboard_path
 
 %p
   %strong
@@ -22,6 +26,36 @@
     Phone number:
   = @restaurant.phone_number 
 
+- if current_owner != @restaurant.owner
+  = form_for([@restaurant, @reservation]) do |f| 
+    %div
+      = f.label :email
+      = f.text_field :email
+
+    %div
+      = f.label :request_time
+      = f.datetime_select :request_time
+
+    %div
+      = f.label :message
+      = f.text_field :message
+
+    %div
+      = f.submit "Submit"
+
+- if (owner_signed_in?) && (current_owner == @restaurant.owner)
+  %h1
+    Reservation:
+  %p
+    - @restaurant.reservations.each do |r| 
+      %p
+        = r.email 
+      %p
+        = r.request_time 
+      %p
+        = r.message
+      %p
+        = link_to 'Marked as Confirmed',reservation_path, :method => :delete, :confirm => 'Confirmed?'
 
 = image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@restaurant.full_address}&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7C#{@restaurant.full_address}")
 
@@ -31,4 +65,5 @@
 - if (owner_signed_in?) && (current_owner == @restaurant.owner)
   = link_to 'Edit', edit_restaurant_path 
   = link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure to delete?' }
+
 = link_to 'Back', restaurants_path 

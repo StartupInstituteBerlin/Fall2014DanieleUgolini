@@ -1,0 +1,5 @@
+<h1><%= @reservation.restaurant.name %></h1>
+<h2><%= @reservation.email %></h2>
+<h2><%= @reservation.request_time %></h2>
+<h2><%= @reservation.message %></h2>
+<p><%= link_to "Edit", edit_restaurant_reservation_path(@restaurant, @reservation) %></p>

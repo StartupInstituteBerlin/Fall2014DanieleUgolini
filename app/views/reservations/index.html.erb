@@ -1,0 +1,10 @@
+<h1>Reservations</h1>
+
+<% @reservations.each do |r| %>
+  <p><%= r.restaurant.name %></p>
+  <p><%= r.email %></p>
+  <p><%= r.request_time  %></p>
+  <p><%= r.message %></p>
+<% end %>
+
+<%= link_to 'Destroy', @restaurant, method: :delete, data: { confirm: 'Are you sure to delete?' } %>

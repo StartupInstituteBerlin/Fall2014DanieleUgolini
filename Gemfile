@@ -31,6 +31,7 @@ gem 'haml'
 gem 'bcrypt'
 gem "parsley-rails"
 gem "faker"
+gem 'mandrill-api', '~> 1.0.53', require: "mandrill"
 
 group :test do
 gem 'rspec-rails'

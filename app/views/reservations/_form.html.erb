@@ -1,0 +1,15 @@
+<%= form_for [@restaurant, @reservation] do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :request_time %>
+    <%= f.date_field :request_time %>
+  </div>
+   <div>
+    <%= f.label :message %>
+    <%= f.text_field :message %>
+  </div>
+<% end %>
+
