@@ -29,9 +29,11 @@ class RestaurantsController < ApplicationController
 	end
 
 	def edit
+		3.times { @restaurant.reservations.build }
 	end
 
 	def update
+		
 		if @restaurant.update(restaurant_params)
 			redirect_to @restaurant
 		else
@@ -46,7 +48,9 @@ class RestaurantsController < ApplicationController
 
 	private
 		def restaurant_params
-			params.require(:restaurant).permit(:name, :description, :full_address, :phone_number)
+			params.require(:restaurant).permit(:name, :description, :full_address, :phone_number, 
+				reservations_attributes:[:id, :status])
+
 		end
 
 		def check_owner

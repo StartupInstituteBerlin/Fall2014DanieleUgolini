@@ -54,8 +54,12 @@
         = r.request_time 
       %p
         = r.message
-      %p
-        = link_to 'Marked as Confirmed',reservation_path, :method => :delete, :confirm => 'Confirmed?'
+      %form
+      %label status
+      %select.status  
+        %option
+          = r.status
+          %input{:type => "submit", :value => "Update"}
 
 = image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@restaurant.full_address}&zoom=13&size=600x300&maptype=roadmap&markers=color:red%7C#{@restaurant.full_address}")
 

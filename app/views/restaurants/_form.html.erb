@@ -27,6 +27,11 @@
     <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
   </div>
+  <%= f.fields_for :reservations do |r| %>
+     <%= r.object.request_time %>
+     <%= r.select :status, %w(pending accepted declined) %>
+     <hr />
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
