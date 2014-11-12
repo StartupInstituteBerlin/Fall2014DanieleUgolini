@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   #before_action :load_restaurant, :except => [:index, :show, :edit]
-  before_action :authenticate_owner!, only: [:destroy]
+  before_action :authenticate_user!, only: [:destroy]
 
 
 	def index

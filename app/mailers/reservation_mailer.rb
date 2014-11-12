@@ -9,11 +9,11 @@ class ReservationMailer < ActionMailer::Base
 
   def new_reservation(reservation)
     @reservation = reservation
-    @owner_email = reservation.restaurant.owner.email
+    @user_email = reservation.restaurant.user.email
   	template_name = "new-reservation"	
   	template_content = []
   	message = {
-  		to: [{email: @owner_email}],
+  		to: [{email: @user_email}],
   		subject: "New Reservation for #{reservation.restaurant.name} #{reservation.request_time}",
   		merge_vars: [
   			{rcpt: "dan.ugolini@gmail.com",

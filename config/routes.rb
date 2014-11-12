@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :owners
+  devise_for :user
 
-  get '/dashboard' => 'owners#dashboard', :as => :dashboard
+  get '/dashboard' => 'users#dashboard', :as => :dashboard
 
   resources :restaurants do
   	resources :reservations, :only => [:new, :create]

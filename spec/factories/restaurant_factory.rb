@@ -4,6 +4,6 @@ FactoryGirl.define do
     description "Here a description"
     full_address "Some street, some City, State"
     phone_number "123456789"
-    owner
+    user
   end
 end
